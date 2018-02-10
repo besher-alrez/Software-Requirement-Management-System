@@ -13,7 +13,7 @@ include 'sql.php';
 <?php
 
     $sql = new sql();
-    $adminprojects= $sql->adminprojects();
+    $userprojects= $sql->userprojects($_SESSION['username'][0]['user_name']);
 //     echo "<pre>";
 // print_r ($userprojects);
 // die();
@@ -33,7 +33,7 @@ include 'sql.php';
      </div>
     <!--  <div class="pull-right"><button>View</button></div> -->
 <?php
-    if( $adminprojects[2] < 1)
+    if( $userprojects[2] < 1)
 {
 
   echo "No projects at this moment";
@@ -54,9 +54,9 @@ else{
 
 
 
-     <div id="projectID" class="pro-details"><?php echo $adminprojects[1][$x]["project_id"]; ?> </div>
-     <div class="pro-details"><?php echo $adminprojects[1][$x]["project_name"]; ?> </div>
-     <div class="pull-right"><a href="index.php?page=ProjectContent&project_id=<?php echo $adminprojects[1][$x]["project_id"]; ?>"><button>View</button></a></div>
+     <div id="projectID" class="pro-details"><?php echo $userprojects[1][$x]["project_id"]; ?> </div>
+     <div class="pro-details"><?php echo $userprojects[1][$x]["project_name"]; ?> </div>
+     <div class="pull-right"><a href="index.php?page=ProjectContent&project_id=<?php echo $userprojects[1][$x]["project_id"]; ?>"><button>View</button></a></div>
 
 
 
@@ -72,7 +72,7 @@ else{
 <?php
   $x++;
 
-}while ($x < $adminprojects[2]);
+}while ($x < $userprojects[2]);
 
 }
 ?>

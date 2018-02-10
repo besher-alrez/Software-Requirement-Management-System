@@ -1,7 +1,7 @@
 <?php
 include 'dbconnecion.php';
 include 'sql.php';
-//session_start();
+//ses//sion_start();
 
 
 ?>
@@ -15,7 +15,7 @@ include 'sql.php';
     $sql = new sql();
     $userprojects= $sql->userprojects($_SESSION['username'][0]['user_name']);
     
-
+ 
 ?>
 
   <?php
@@ -74,6 +74,8 @@ else{
 
 }
 ?>
+<?php if( $_SESSION['username'][0]['user_name'] != 'admin' ) {?>
+
 <h3>Projects U are Member In</h3>
 <?php
 
@@ -119,7 +121,7 @@ else{
 
      <div id="projectID" class="pro-details"><?php echo $userprojects[1][$x]["project_id"]; ?> </div>
      <div class="pro-details"><?php echo $userprojects[1][$x]["project_name"]; ?> </div>
-     <div class="pull-right"><a href="index.php?page=ProjectContent&project_id=<?php echo $userprojects[1][$x]["project_id"];?>"><button>View</button></a></div>
+     <div class="pull-right"><a href="index.php?page=memberProjectContent&project_id=<?php echo $userprojects[1][$x]["project_id"];?>"><button>View</button></a></div>
 
 
 
@@ -137,6 +139,6 @@ else{
 
 }while ($x < $userprojects[2]);
 
-}
+} }
 ?>
 </div>

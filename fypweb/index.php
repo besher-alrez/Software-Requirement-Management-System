@@ -3,6 +3,7 @@
 session_start();
 
 
+// echo $_SESSION['username'][0]['user_name'];
 ?>
 
 <!DOCTYPE html>
